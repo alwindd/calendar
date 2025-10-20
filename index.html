@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kalendarz urlopów — Zespół</title>
+  <link href="https://cdn.jsdelivr.net/npm/@fullcalendar/core@6.1.8/main.min.css" rel="stylesheet">
+  <style>
+    body { font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin: 0; padding: 0; background: #f6f7fb; }
+    header { background: linear-gradient(90deg,#4f46e5,#06b6d4); color: white; padding: 18px; display:flex; align-items:center; justify-content:space-between; }
+    header h1 { margin:0; font-size:1.1rem; }
+    .container { display:grid; grid-template-columns: 300px 1fr; gap: 18px; padding:18px; }
+    .panel { background: white; border-radius:12px; box-shadow: 0 6px 20px rgba(20,20,50,0.06); padding:12px; }
+    .controls { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:8px; }
+    label { display:block; font-size:0.85rem; margin-bottom:6px; }
+    select,input,button { padding:8px; border-radius:8px; border:1px solid #e6e9f2; font-size:0.95rem; }
+    button { cursor:pointer; background:#111827; color:white; border:none; }
+    #calendar { background:white; padding:12px; border-radius:12px; }
+    .member-list { max-height: 360px; overflow:auto; }
+    .member-item { display:flex; align-items:center; gap:8px; margin-bottom:8px; }
+    .color-dot { width:14px; height:14px; border-radius:50%; }
+    footer { padding:12px; text-align:center; font-size:0.85rem; color:#666; }
+    .small { font-size:0.85rem; color:#444; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Kalendarz urlopów — Zespół</h1>
+    <div class="small">Statyczny, gotowy do hostowania na GitHub Pages</div>
+  </header>
+
+  <div class="container">
+    <aside class="panel">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+        <strong>Ustawienia</strong>
+        <button id="btnExportJSON">Eksportuj JSON</button>
+      </div>
+
+      <div class="controls">
+        <div style="flex:1">
+          <label for="filterMember">Pokaż członka</label>
+          <select id="filterMember"><option value="all">Wszyscy</option></select>
+        </div>
+        <div style="flex:1">
+          <label for="viewSelect">Widok</label>
+          <select id="viewSelect"><option value="dayGridMonth">Miesiąc</option><option value="timeGridWeek">Tydzień</option><option value="listWeek">Lista</option></select>
+        </div>
+      </div>
+
+      <div style="margin-top:12px;">
+        <strong>Dodaj urlop (lokalnie)</strong>
+        <div style="margin-top:8px;display:grid;gap:8px;">
+          <input id="newMember" placeholder="Imię i nazwisko (np. Anna)" />
+          <input id="newType" placeholder="Typ (Wakacje/Chorobowe)" />
+          <div style="display:flex;gap:8px;"><input id="newStart" type="date" /><input id="newEnd" type="date" /></div>
+          <input id="newColor" type="color" value="#1f77b4" />
+          <button id="btnAdd">Dodaj (local)</button>
+          <button id="btnDownloadICS">Pobierz .ics (z widocznych)</button>
+        </div>
+      </div>
+
+      <hr style="margin:12px 0" />
+      <strong>Lista członków</strong>
+      <div class="member-list" id="memberList"></div>
+
+      <hr style="margin:12px 0" />
+      <div class="small">Instrukcja: Aby współdzielić zmiany globalne, edytuj plik <code>events.json</code> w repo i wykonaj PR.</div>
+    </aside>
+
+    <main>
+      <div id="calendar" class="panel"></div>
+    </main>
+  </div>
+
+  <footer>Made for your team • Możesz modyfikować plik i dostosować do swoich reguł urlopowych</footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/core@6.1.8/main.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@6.1.8/main.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/timegrid@6.1.8/main.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/list@6.1.8/main.min.js"></script>
+
+  <script>
+    // --- Konfiguracja ---
+    const EVENTS_JSON = 'events.json'; // jeśli plik istnieje w repo i jest hostowany, aplikacja go załaduje
+
+    // Przykładowe dane (używane, jeśli fetch do EVENTS_JSON nie powiedzie się)
+    const sampleEvents = [
+      { id: '1', title: 'Anna — Wakacje', start: '2025-07-01', end: '2025-07-05', member: 'Anna', type: 'Wakacje', color: '#1f77b4' },
+      { id: '2', title: 'Marek — Chorobowe', start: '2025-07-03', end: '2025-07-03', member: 'Marek', type: 'Chorobowe', color: '#ff7f0e' },
+      { id: '3', title: 'Ola — Zdalny', start: '2025-07-10', end: '2025-07-10', member: 'Ola', type: 'Zdalny', color: '#2ca02c' }
+    ];
+
+    // Local state
+    let events = [];
+    let calendar;
+
+    // Utility: fetch events.json (raw) with timeout
+    function fetchEventsJson() {
+      return new Promise((resolve) => {
+        fetch(EVENTS_JSON).then(res => {
+          if (!res.ok) throw new Error('no file');
+          return res.json();
+        }).then(js => resolve(js)).catch(()=>resolve(null));
+      });
+    }
+
+    function normalizeEvent(ev){
+      // FullCalendar expects end to be exclusive for all-day events; if end equals start, keep it single-day
+      return { id: ev.id || String(Math.random()).slice(2,9), title: ev.title || (ev.member + ' — ' + (ev.type||'Urlop')), start: ev.start, end: ev.end ? addOneDayIfSame(ev.start, ev.end) : ev.start, allDay: true, extendedProps: { member: ev.member, type: ev.type }, backgroundColor: ev.color, borderColor: ev.color };
+    }
+    function addOneDayIfSame(start, end){
+      // FullCalendar dayGrid uses exclusive end; if end equals start, set end = next day
+      if (!end) return start;
+      if (start === end) {
+        const d = new Date(end);
+        d.setDate(d.getDate() + 1);
+        return d.toISOString().slice(0,10);
+      }
+      return end;
+    }
+
+    function buildMemberList(evts){
+      const members = Array.from(new Set(evts.map(e=>e.member||'Unknown'))).sort();
+      const sel = document.getElementById('filterMember');
+      sel.innerHTML = '<option value="all">Wszyscy</option>' + members.map(m=>`<option value="${m}">${m}</option>`).join('');
+      const ml = document.getElementById('memberList'); ml.innerHTML='';
+      members.forEach(m=>{
+        const color = evts.find(e=>e.member===m)?.color || '#888';
+        const div = document.createElement('div'); div.className='member-item';
+        div.innerHTML = `<div class="color-dot" style="background:${color}"></div><div>${m}</div>`;
+        ml.appendChild(div);
+      });
+    }
+
+    function renderCalendar(){
+      const calendarEl = document.getElementById('calendar');
+      calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'dayGridMonth',
+        headerToolbar: { left: 'prev,next today', center: 'title', right: 'dayGridMonth,timeGridWeek,listWeek' },
+        height: 'auto',
+        events: events.map(normalizeEvent),
+        eventDidMount: function(info){
+          // Tooltip or extra content could be added here
+          info.el.style.cursor = 'pointer';
+        },
+        eventClick: function(info){
+          alert(info.event.title + '\n' + (info.event.extendedProps.type || ''));
+        }
+      });
+      calendar.render();
+    }
+
+    function applyFilter(){
+      const val = document.getElementById('filterMember').value;
+      const filtered = val === 'all' ? events : events.filter(e=>e.member===val);
+      calendar.removeAllEvents();
+      calendar.addEventSource(filtered.map(normalizeEvent));
+    }
+
+    function downloadJSON(){
+      const dataStr = JSON.stringify(events, null, 2);
+      const blob = new Blob([dataStr], {type:'application/json'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a'); a.href = url; a.download = 'events-export.json'; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+    }
+
+    function generateICS(visibleOnly=true){
+      const evts = visibleOnly ? calendar.getEvents().map(e=>({ title: e.title, start: e.startStr, end: e.endStr || e.startStr })) : events.map(e=>({ title: e.title, start: e.start, end: e.end || e.start }));
+      let ics = 'BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//KalendarzUrlopow//EN\n';
+      evts.forEach(e=>{
+        const uid = 'uid-' + Math.random().toString(36).slice(2,10) + '@kalendarz';
+        const dtstart = e.start.replace(/-/g,'');
+        let dtend = e.end ? e.end.replace(/-/g,'') : dtstart;
+        // For all-day events, use DATE format and make end exclusive by adding 1 day
+        const s = dtstart;
+        // ensure end is next day for all-day
+        const endDate = new Date((e.end||e.start)); endDate.setDate(endDate.getDate()+1);
+        const ed = endDate.toISOString().slice(0,10).replace(/-/g,'');
+        ics += 'BEGIN:VEVENT\n';
+        ics += `UID:${uid}\n`;
+        ics += `DTSTAMP:${new Date().toISOString().replace(/[-:]/g,'').split('.')[0]}Z\n`;
+        ics += `DTSTART;VALUE=DATE:${s}\n`;
+        ics += `DTEND;VALUE=DATE:${ed}\n`;
+        ics += `SUMMARY:${e.title}\n`;
+        ics += 'END:VEVENT\n';
+      });
+      ics += 'END:VCALENDAR';
+      const blob = new Blob([ics], {type:'text/calendar;charset=utf-8'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a'); a.href=url; a.download='kalendarz-urlopow.ics'; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+    }
+
+    // Init
+    (async function(){
+      const fetched = await fetchEventsJson();
+      if (fetched && Array.isArray(fetched) && fetched.length) {
+        events = fetched.map(ev=>({ ...ev }));
+      } else {
+        // If nothing to fetch, use sample or load from localStorage
+        const stored = localStorage.getItem('kalendarz_events_v1');
+        if (stored) events = JSON.parse(stored);
+        else events = sampleEvents;
+      }
+
+      buildMemberList(events);
+      document.getElementById('filterMember').addEventListener('change', applyFilter);
+      document.getElementById('viewSelect').addEventListener('change', (e)=>{ calendar.changeView(e.target.value); });
+
+      document.getElementById('btnAdd').addEventListener('click', ()=>{
+        const member = document.getElementById('newMember').value.trim();
+        const type = document.getElementById('newType').value.trim() || 'Urlop';
+        const start = document.getElementById('newStart').value;
+        const end = document.getElementById('newEnd').value || start;
+        const color = document.getElementById('newColor').value;
+        if (!member || !start) { alert('Wypełnij imię i datę startu.'); return; }
+        const id = String(Date.now());
+        const title = `${member} — ${type}`;
+        const ev = { id, title, member, type, start, end, color };
+        events.push(ev);
+        // Save to localStorage (since we cannot write to repo)
+        localStorage.setItem('kalendarz_events_v1', JSON.stringify(events));
+        buildMemberList(events);
+        applyFilter();
+        alert('Dodano lokalnie. Aby udostępnić globalnie, zaktualizuj events.json w repo.');
+      });
+
+      document.getElementById('btnExportJSON').addEventListener('click', downloadJSON);
+      document.getElementById('btnDownloadICS').addEventListener('click', ()=> generateICS(true));
+
+      renderCalendar();
+      applyFilter();
+    })();
+  </script>
+</body>
+</html>

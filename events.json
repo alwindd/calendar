@@ -1,0 +1,56 @@
+[
+  {
+    "id": "anna-placeholder",
+    "title": "Anna — brak danych",
+    "start": "",
+    "end": "",
+    "member": "Anna",
+    "type": "",
+    "color": "#1f77b4"
+  },
+  {
+    "id": "marek-placeholder",
+    "title": "Marek — brak danych",
+    "start": "",
+    "end": "",
+    "member": "Marek",
+    "type": "",
+    "color": "#1f77b4"
+  },
+  {
+    "id": "ola-placeholder",
+    "title": "Ola — brak danych",
+    "start": "",
+    "end": "",
+    "member": "Ola",
+    "type": "",
+    "color": "#1f77b4"
+  },
+  {
+    "id": "piotr-placeholder",
+    "title": "Piotr — brak danych",
+    "start": "",
+    "end": "",
+    "member": "Piotr",
+    "type": "",
+    "color": "#1f77b4"
+  },
+  {
+    "id": "magda-placeholder",
+    "title": "Magda — brak danych",
+    "start": "",
+    "end": "",
+    "member": "Magda",
+    "type": "",
+    "color": "#1f77b4"
+  },
+  {
+    "id": "bartek-placeholder",
+    "title": "Bartek — brak danych",
+    "start": "",
+    "end": "",
+    "member": "Bartek",
+    "type": "",
+    "color": "#1f77b4"
+  }
+]

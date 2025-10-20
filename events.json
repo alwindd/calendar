@@ -1,55 +1,55 @@
 [
   {
-    "id": "anna-placeholder",
-    "title": "Anna — brak danych",
+    "id": "Tomek-placeholder",
+    "title": "Tomek — brak danych",
     "start": "",
     "end": "",
-    "member": "Anna",
+    "member": "Tomek",
     "type": "",
     "color": "#1f77b4"
   },
   {
-    "id": "marek-placeholder",
-    "title": "Marek — brak danych",
+    "id": "Natalia-placeholder",
+    "title": "Natalia — brak danych",
     "start": "",
     "end": "",
-    "member": "Marek",
+    "member": "Natalia",
     "type": "",
     "color": "#1f77b4"
   },
   {
-    "id": "ola-placeholder",
-    "title": "Ola — brak danych",
+    "id": "Wiktoria-placeholder",
+    "title": "Wiktoria — brak danych",
     "start": "",
     "end": "",
-    "member": "Ola",
+    "member": "Wiktoria",
     "type": "",
     "color": "#1f77b4"
   },
   {
-    "id": "piotr-placeholder",
-    "title": "Piotr — brak danych",
+    "id": "Szymon-placeholder",
+    "title": "Szymon — brak danych",
     "start": "",
     "end": "",
-    "member": "Piotr",
+    "member": "Szymon",
     "type": "",
     "color": "#1f77b4"
   },
   {
-    "id": "magda-placeholder",
-    "title": "Magda — brak danych",
+    "id": "Wiktor-placeholder",
+    "title": "Wiktor — brak danych",
     "start": "",
     "end": "",
-    "member": "Magda",
+    "member": "Wiktor",
     "type": "",
     "color": "#1f77b4"
   },
   {
-    "id": "bartek-placeholder",
-    "title": "Bartek — brak danych",
+    "id": "Jan-placeholder",
+    "title": "Jan — brak danych",
     "start": "",
     "end": "",
-    "member": "Bartek",
+    "member": "Jan",
     "type": "",
     "color": "#1f77b4"
   }

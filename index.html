@@ -1,142 +1,85 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8" />
-  <title>Kalendarz urlopów zespołu AXOLOTL</title>
+  <meta charset="UTF-8">
+  <title>Kalendarz urlopów zespołu</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
   <style>
     body {
       font-family: system-ui, sans-serif;
-      background: #805578;
+      background: #f8f9fa;
       color: #222;
-      margin: 20px;
-      max-width: 800px;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
-    h1 {
-      margin-bottom: 0.5em;
-    }
-    table {
-      border-collapse: collapse;
+    header {
       width: 100%;
-      margin-top: 10px;
-    }
-    th, td {
-      border: 1px solid #ccc;
-      padding: 6px 8px;
-      text-align: left;
-    }
-    th {
-      background: #eee;
-    }
-    input, select, button {
-      padding: 4px 6px;
-      margin: 2px;
-    }
-    pre {
-      background: #f0f0f0;
+      background: #004aad;
+      color: white;
       padding: 10px;
-      overflow-x: auto;
+      text-align: center;
     }
-    .actions {
-      margin-top: 15px;
+    #calendar {
+      max-width: 900px;
+      width: 100%;
+      margin: 20px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      padding: 10px;
+    }
+    .loading {
+      text-align: center;
+      margin: 30px;
+      font-size: 1.2em;
+      color: #555;
     }
   </style>
 </head>
 <body>
-  <h1>🗓️ Kalendarz urlopów zespołu</h1>
-  <p>Każdy członek zespołu może dodać lub zaktualizować swój urlop. Po wypełnieniu pól kliknij „💾 Pobierz events.json” i zrób commit w repozytorium.</p>
-
-  <table id="teamTable">
-    <thead>
-      <tr><th>Imię</th><th>Od</th><th>Do</th><th>Typ</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>Tomek</td><td><input type="date"></td><td><input type="date"></td>
-        <td>
-          <select>
-            <option value="Wakacje">Wakacje</option>
-            <option value="Chorobowe">Chorobowe</option>
-            <option value="Opieka">Opieka</option>
-            <option value="Inne">Inne</option>
-          </select>
-        </td></tr>
-      <tr><td>Natalia</td><td><input type="date"></td><td><input type="date"></td><td><select><option value="Wakacje">Wakacje</option><option value="Chorobowe">Chorobowe</option><option value="Opieka">Opieka</option><option value="Inne">Inne</option></select></td></tr>
-      <tr><td>Wiktoria</td><td><input type="date"></td><td><input type="date"></td><td><select><option value="Wakacje">Wakacje</option><option value="Chorobowe">Chorobowe</option><option value="Opieka">Opieka</option><option value="Inne">Inne</option></select></td></tr>
-      <tr><td>Szymon</td><td><input type="date"></td><td><input type="date"></td><td><select><option value="Wakacje">Wakacje</option><option value="Chorobowe">Chorobowe</option><option value="Opieka">Opieka</option><option value="Inne">Inne</option></select></td></tr>
-      <tr><td>Wiktor</td><td><input type="date"></td><td><input type="date"></td><td><select><option value="Wakacje">Wakacje</option><option value="Chorobowe">Chorobowe</option><option value="Opieka">Opieka</option><option value="Inne">Inne</option></select></td></tr>
-      <tr><td>Jan</td><td><input type="date"></td><td><input type="date"></td><td><select><option value="Wakacje">Wakacje</option><option value="Chorobowe">Chorobowe</option><option value="Opieka">Opieka</option><option value="Inne">Inne</option></select></td></tr>
-    </tbody>
-  </table>
-
-  <div class="actions">
-    <button id="generateBtn">💾 Pobierz events.json</button>
-    <input type="file" id="loadJson" accept=".json">
-    <label for="loadJson">📂 Wczytaj istniejący plik</label>
-  </div>
-
-  <h2>Podgląd JSON</h2>
-  <pre id="jsonPreview">[]</pre>
+  <header>
+    <h1>🗓️ Kalendarz urlopów zespołu</h1>
+    <p>Dane pochodzą z pliku <code>events.json</code></p>
+  </header>
+  
+  <div id="calendar"></div>
+  <div id="status" class="loading">Ładowanie danych...</div>
 
   <script>
-    const table = document.getElementById('teamTable');
-    const preview = document.getElementById('jsonPreview');
-    const generateBtn = document.getElementById('generateBtn');
-    const loadJson = document.getElementById('loadJson');
+    document.addEventListener('DOMContentLoaded', async () => {
+      const calendarEl = document.getElementById('calendar');
+      const statusEl = document.getElementById('status');
 
-    function generateJson() {
-      const rows = Array.from(table.querySelectorAll('tbody tr'));
-      const data = rows.map(r => {
-        const [nameCell, startCell, endCell, typeCell] = r.children;
-        const name = nameCell.textContent.trim();
-        const start = startCell.querySelector('input').value;
-        const end = endCell.querySelector('input').value;
-        const type = typeCell.querySelector('select').value;
-        if (!start || !end) return null;
-        return {
-          id: `${name.toLowerCase()}-${start}`,
-          title: `${name} — ${type}`,
-          start,
-          end,
-          member: name,
-          type,
-          color: "#1f77b4"
-        };
-      }).filter(Boolean);
+      try {
+        const response = await fetch('events.json?' + Date.now()); // cache-busting
+        if (!response.ok) throw new Error('Nie udało się załadować pliku events.json');
+        const events = await response.json();
 
-      preview.textContent = JSON.stringify(data, null, 2);
-      return data;
-    }
+        statusEl.style.display = 'none';
 
-    generateBtn.addEventListener('click', () => {
-      const data = generateJson();
-      const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
-      const a = document.createElement('a');
-      a.href = URL.createObjectURL(blob);
-      a.download = 'events.json';
-      a.click();
-    });
+        const calendar = new FullCalendar.Calendar(calendarEl, {
+          initialView: 'dayGridMonth',
+          locale: 'pl',
+          height: 'auto',
+          events: events,
+          eventColor: '#007bff',
+          displayEventTime: false,
+          headerToolbar: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'dayGridMonth,timeGridWeek,listWeek'
+          }
+        });
 
-    loadJson.addEventListener('change', (e) => {
-      const file = e.target.files[0];
-      if (!file) return;
-      const reader = new FileReader();
-      reader.onload = () => {
-        try {
-          const data = JSON.parse(reader.result);
-          data.forEach(ev => {
-            const row = Array.from(table.querySelectorAll('tbody tr'))
-              .find(r => r.children[0].textContent.trim() === ev.member);
-            if (row) {
-              row.children[1].querySelector('input').value = ev.start;
-              row.children[2].querySelector('input').value = ev.end;
-              row.children[3].querySelector('select').value = ev.type;
-            }
-          });
-          generateJson();
-        } catch {
-          alert("Niepoprawny plik JSON");
-        }
-      };
-      reader.readAsText(file);
+        calendar.render();
+      } catch (err) {
+        statusEl.textContent = '❌ Błąd ładowania danych: ' + err.message;
+      }
     });
   </script>
 </body>

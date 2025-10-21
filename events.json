@@ -69,11 +69,11 @@
 
   "Wiktor": [
     {
-      "id": "Wiktor-placeholder",
-      "title": "Wiktor — brak danych",
-      "start": "",
-      "end": "",
-      "type": "",
+      "id": "Wiktor-123",
+      "title": "Wiktor",
+      "start": "2025-12-24",
+      "end": "2025-12-24",
+      "type": "Urlop",
       "color": "#1f77b4"
     }
   ],

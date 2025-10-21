@@ -62,7 +62,9 @@
       try {
         const response = await fetch('events.json?' + Date.now()); // cache-busting
         if (!response.ok) throw new Error('Nie udało się załadować pliku events.json');
-        const events = await response.json();
+        const rawData = await response.json();
+        const events = Object.values(rawData).flat();
+
 
         statusEl.style.display = 'none';
 

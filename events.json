@@ -1,5 +1,4 @@
 [
-  //Natalia
   { 
     "id": "Natalia-listopad25",
     "title": "Natalia",
@@ -36,7 +35,7 @@
     "type": "Urlop",
     "color": "#800068"
   },
-  //Tomek
+
     {
     "id": "Tomek-placeholder",
     "title": "Tomek — brak danych",
@@ -46,7 +45,7 @@
     "type": "",
     "color": "#1f77b4"
   },
-  //Wiktoria
+
   {
     "id": "Wiktoria-placeholder",
     "title": "Wiktoria — brak danych",
@@ -56,7 +55,7 @@
     "type": "",
     "color": "#1f77b4"
   },
-  //Szymon
+
   {
     "id": "Szymon-placeholder",
     "title": "Szymon — brak danych",
@@ -66,7 +65,7 @@
     "type": "",
     "color": "#1f77b4"
   },
-  //Wiktor
+
   {
     "id": "Wiktor-placeholder",
     "title": "Wiktor — brak danych",
@@ -76,7 +75,7 @@
     "type": "",
     "color": "#1f77b4"
   },
-  //Jan
+
     {
     "id": "Jan - listopad",
     "title": "Jan — urlop",
@@ -95,7 +94,7 @@
     "type": "Urlop",
     "color": "#1f77b4"
   },
-  //Święta - oznaczenie w kalendarzu
+
    {
     "id": "11102025",
     "title": "Święto",

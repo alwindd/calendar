@@ -1,107 +1,110 @@
-[
-  { 
-    "id": "Natalia-listopad25",
-    "title": "Natalia",
-    "start": "2025-11-10",
-    "end": "2025-11-10",
-    "member": "Natalia",
-    "type": "Urlop",
-    "color": "#800068"
-  },
-  {
-    "id": "Natalia-swieta",
-    "title": "Natalia — święta",
-    "start": "2025-12-22",
-    "end": "2025-12-31",
-    "member": "Natalia",
-    "type": "Urlop",
-    "color": "#800068"
-  },
-  {
-    "id": "Natalia-urlop1",
-    "title": "Natalia — urlop1",
-    "start": "2026-05-26",
-    "end": "2026-06-07",
-    "member": "Natalia",
-    "type": "Urlop",
-    "color": "#800068"
-  },
-  {
-    "id": "Natalia-urlop2",
-    "title": "Natalia — urlop2",
-    "start": "2026-08-01",
-    "end": "2026-08-16",
-    "member": "Natalia",
-    "type": "Urlop",
-    "color": "#800068"
-  },
-
+{
+  "Natalia": [
     {
-    "id": "Tomek-placeholder",
-    "title": "Tomek — brak danych",
-    "start": "",
-    "end": "",
-    "member": "Tomek",
-    "type": "",
-    "color": "#1f77b4"
-  },
-
-  {
-    "id": "Wiktoria-placeholder",
-    "title": "Wiktoria — brak danych",
-    "start": "",
-    "end": "",
-    "member": "Wiktoria",
-    "type": "",
-    "color": "#1f77b4"
-  },
-
-  {
-    "id": "Szymon-placeholder",
-    "title": "Szymon — brak danych",
-    "start": "",
-    "end": "",
-    "member": "Szymon",
-    "type": "",
-    "color": "#1f77b4"
-  },
-
-  {
-    "id": "Wiktor-placeholder",
-    "title": "Wiktor — brak danych",
-    "start": "",
-    "end": "",
-    "member": "Wiktor",
-    "type": "",
-    "color": "#1f77b4"
-  },
-
+      "id": "Natalia-listopad25",
+      "title": "Natalia",
+      "start": "2025-11-10",
+      "end": "2025-11-10",
+      "type": "Urlop",
+      "color": "#800068"
+    },
     {
-    "id": "Jan - listopad",
-    "title": "Jan — urlop",
-    "start": "2025-11-10",
-    "end": "2025-11-10",
-    "member": "Jan",
-    "type": "Urlop",
-    "color": "#1f77b4"
-  },
-  {
-    "id": "Jan- Święta i Nowy Rok",
-    "title": "Jan — urlop",
-    "start": "2025-12-22",
-    "end": "2026-01-05",
-    "member": "Jan",
-    "type": "Urlop",
-    "color": "#1f77b4"
-  },
+      "id": "Natalia-swieta",
+      "title": "Natalia — święta",
+      "start": "2025-12-22",
+      "end": "2025-12-31",
+      "type": "Urlop",
+      "color": "#800068"
+    },
+    {
+      "id": "Natalia-urlop1",
+      "title": "Natalia — urlop1",
+      "start": "2026-05-26",
+      "end": "2026-06-07",
+      "type": "Urlop",
+      "color": "#800068"
+    },
+    {
+      "id": "Natalia-urlop2",
+      "title": "Natalia — urlop2",
+      "start": "2026-08-01",
+      "end": "2026-08-16",
+      "type": "Urlop",
+      "color": "#800068"
+    }
+  ],
 
-   {
-    "id": "11102025",
-    "title": "Święto",
-    "start": "2025-11-11",
-    "end": "2025-11-11",
-    "member": "",
-    "type": "Święto",
-    "color": "#078A20"
-  }
-]
+  "Tomek": [
+    {
+      "id": "Tomek-placeholder",
+      "title": "Tomek — brak danych",
+      "start": "",
+      "end": "",
+      "type": "",
+      "color": "#1f77b4"
+    }
+  ],
+
+  "Wiktoria": [
+    {
+      "id": "Wiktoria-placeholder",
+      "title": "Wiktoria — brak danych",
+      "start": "",
+      "end": "",
+      "type": "",
+      "color": "#1f77b4"
+    }
+  ],
+
+  "Szymon": [
+    {
+      "id": "Szymon-placeholder",
+      "title": "Szymon — brak danych",
+      "start": "",
+      "end": "",
+      "type": "",
+      "color": "#1f77b4"
+    }
+  ],
+
+  "Wiktor": [
+    {
+      "id": "Wiktor-placeholder",
+      "title": "Wiktor — brak danych",
+      "start": "",
+      "end": "",
+      "type": "",
+      "color": "#1f77b4"
+    }
+  ],
+
+  "Jan": [
+    {
+      "id": "Jan-listopad",
+      "title": "Jan — urlop",
+      "start": "2025-11-10",
+      "end": "2025-11-10",
+      "type": "Urlop",
+      "color": "#1f77b4"
+    },
+    {
+      "id": "Jan-swieta-nowyrok",
+      "title": "Jan — urlop (Święta i Nowy Rok)",
+      "start": "2025-12-22",
+      "end": "2026-01-05",
+      "type": "Urlop",
+      "color": "#1f77b4"
+    }
+  ],
+
+  "Święta": [
+    {
+      "id": "11102025",
+      "title": "Święto Niepodległości",
+      "start": "2025-11-11",
+      "end": "2025-11-11",
+      "type": "Święto",
+      "color": "#078A20"
+    }
+  ]
+}

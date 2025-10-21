@@ -1,5 +1,14 @@
 [
   {
+    "id": "Natalia-listopad25",
+    "title": "Natalia",
+    "start": "2025-11-10",
+    "end": "2025-11-10",
+    "member": "Natalia",
+    "type": "Urlop",
+    "color": "#800068"
+  },
+  {
     "id": "Natalia-swieta",
     "title": "Natalia — święta",
     "start": "2026-12-22",
@@ -10,7 +19,7 @@
   },
   {
     "id": "Natalia-urlop1",
-    "title": "Natalia — urlop",
+    "title": "Natalia — urlop1",
     "start": "2026-05-26",
     "end": "2026-06-07",
     "member": "Natalia",
@@ -19,7 +28,7 @@
   },
   {
     "id": "Natalia-urlop2",
-    "title": "Natalia — urlop",
+    "title": "Natalia — urlop2",
     "start": "2026-08-01",
     "end": "2026-08-16",
     "member": "Natalia",
@@ -79,5 +88,14 @@
     "member": "Jan",
     "type": "Urlop",
     "color": "#1f77b4"
+  },
+   {
+    "id": "11102025",
+    "title": "Święto",
+    "start": "2025-11-11",
+    "end": "2026-11-11",
+    "member": "",
+    "type": "Święto",
+    "color": "#078A20"
   }
 ]

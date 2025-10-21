@@ -62,9 +62,18 @@
     "type": "",
     "color": "#1f77b4"
   },
+    {
+    "id": "Jan - listopad",
+    "title": "Jan — urlop",
+    "start": "2025-11-10",
+    "end": "2025-11-10",
+    "member": "Jan",
+    "type": "Urlop",
+    "color": "#1f77b4"
+  },
   {
     "id": "Jan- Święta i Nowy Rok",
-    "title": "Jan — brak danych",
+    "title": "Jan — urlop",
     "start": "2025-12-22",
     "end": "2026-01-05",
     "member": "Jan",

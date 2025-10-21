@@ -71,8 +71,16 @@
     {
       "id": "Wiktor-placeholder",
       "title": "Wiktor — brak danych",
-      "start": "",
-      "end": "",
+      "start": "2026-07-20",
+      "end": "2026-07-28",
+      "type": "",
+      "color": "#1f77b4"
+    }
+    {
+      "id": "Wiktor-placeholder",
+      "title": "Wiktor — brak danych",
+      "start": "2026-08-03",
+      "end": "2026-08-05",
       "type": "",
       "color": "#1f77b4"
     }

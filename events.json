@@ -98,13 +98,26 @@
   ],
 
   "Święta": [
-    {
-      "id": "11102025",
-      "title": "Święto Niepodległości",
-      "start": "2025-11-11",
-      "end": "2025-11-11",
-      "type": "Święto",
-      "color": "#078A20"
-    }
+    { "id": "newyear2025", "title": "Nowy Rok", "start": "2025-01-01", "end": "2025-01-01", "type": "Święto", "color": "#078A20" },
+    { "id": "trzechkroli2025", "title": "Trzech Króli", "start": "2025-01-06", "end": "2025-01-06", "type": "Święto", "color": "#078A20" },
+    { "id": "wielkanoc2025", "title": "Poniedziałek Wielkanocny", "start": "2025-04-21", "end": "2025-04-21", "type": "Święto", "color": "#078A20" },
+    { "id": "1maj2025", "title": "Święto Pracy", "start": "2025-05-01", "end": "2025-05-01", "type": "Święto", "color": "#078A20" },
+    { "id": "3maj2025", "title": "Święto Konstytucji 3 Maja", "start": "2025-05-03", "end": "2025-05-03", "type": "Święto", "color": "#078A20" },
+    { "id": "bozecialo2025", "title": "Boże Ciało", "start": "2025-06-19", "end": "2025-06-19", "type": "Święto", "color": "#078A20" },
+    { "id": "wniebowziecie2025", "title": "Wniebowzięcie NMP", "start": "2025-08-15", "end": "2025-08-15", "type": "Święto", "color": "#078A20" },
+    { "id": "wszystkichswietych2025", "title": "Wszystkich Świętych", "start": "2025-11-01", "end": "2025-11-01", "type": "Święto", "color": "#078A20" },
+    { "id": "niepodleglosc2025", "title": "Święto Niepodległości", "start": "2025-11-11", "end": "2025-11-11", "type": "Święto", "color": "#078A20" },
+    { "id": "bozenarodzenie2025", "title": "Boże Narodzenie", "start": "2025-12-25", "end": "2025-12-26", "type": "Święto", "color": "#078A20" },
+
+    { "id": "newyear2026", "title": "Nowy Rok", "start": "2026-01-01", "end": "2026-01-01", "type": "Święto", "color": "#078A20" },
+    { "id": "trzechkroli2026", "title": "Trzech Króli", "start": "2026-01-06", "end": "2026-01-06", "type": "Święto", "color": "#078A20" },
+    { "id": "wielkanoc2026", "title": "Poniedziałek Wielkanocny", "start": "2026-04-06", "end": "2026-04-06", "type": "Święto", "color": "#078A20" },
+    { "id": "1maj2026", "title": "Święto Pracy", "start": "2026-05-01", "end": "2026-05-01", "type": "Święto", "color": "#078A20" },
+    { "id": "3maj2026", "title": "Święto Konstytucji 3 Maja", "start": "2026-05-03", "end": "2026-05-03", "type": "Święto", "color": "#078A20" },
+    { "id": "bozecialo2026", "title": "Boże Ciało", "start": "2026-06-04", "end": "2026-06-04", "type": "Święto", "color": "#078A20" },
+    { "id": "wniebowziecie2026", "title": "Wniebowzięcie NMP", "start": "2026-08-15", "end": "2026-08-15", "type": "Święto", "color": "#078A20" },
+    { "id": "wszystkichswietych2026", "title": "Wszystkich Świętych", "start": "2026-11-01", "end": "2026-11-01", "type": "Święto", "color": "#078A20" },
+    { "id": "niepodleglosc2026", "title": "Święto Niepodległości", "start": "2026-11-11", "end": "2026-11-11", "type": "Święto", "color": "#078A20" },
+    { "id": "bozenarodzenie2026", "title": "Boże Narodzenie", "start": "2026-12-25", "end": "2026-12-26", "type": "Święto", "color": "#078A20" }
   ]
 }

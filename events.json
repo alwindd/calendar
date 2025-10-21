@@ -107,7 +107,7 @@
     { "id": "wniebowziecie2025", "title": "Wniebowzięcie NMP", "start": "2025-08-15", "end": "2025-08-15", "type": "Święto", "color": "#078A20" },
     { "id": "wszystkichswietych2025", "title": "Wszystkich Świętych", "start": "2025-11-01", "end": "2025-11-01", "type": "Święto", "color": "#078A20" },
     { "id": "niepodleglosc2025", "title": "Święto Niepodległości", "start": "2025-11-11", "end": "2025-11-11", "type": "Święto", "color": "#078A20" },
-    { "id": "bozenarodzenie2025", "title": "Boże Narodzenie", "start": "2025-12-25", "end": "2025-12-26", "type": "Święto", "color": "#078A20" },
+    { "id": "bozenarodzenie2025", "title": "Wigilia i Boże Narodzenie", "start": "2025-12-24", "end": "2025-12-26", "type": "Święto", "color": "#078A20" },
 
     { "id": "newyear2026", "title": "Nowy Rok", "start": "2026-01-01", "end": "2026-01-01", "type": "Święto", "color": "#078A20" },
     { "id": "trzechkroli2026", "title": "Trzech Króli", "start": "2026-01-06", "end": "2026-01-06", "type": "Święto", "color": "#078A20" },
@@ -118,6 +118,6 @@
     { "id": "wniebowziecie2026", "title": "Wniebowzięcie NMP", "start": "2026-08-15", "end": "2026-08-15", "type": "Święto", "color": "#078A20" },
     { "id": "wszystkichswietych2026", "title": "Wszystkich Świętych", "start": "2026-11-01", "end": "2026-11-01", "type": "Święto", "color": "#078A20" },
     { "id": "niepodleglosc2026", "title": "Święto Niepodległości", "start": "2026-11-11", "end": "2026-11-11", "type": "Święto", "color": "#078A20" },
-    { "id": "bozenarodzenie2026", "title": "Boże Narodzenie", "start": "2026-12-25", "end": "2026-12-26", "type": "Święto", "color": "#078A20" }
+    { "id": "bozenarodzenie2026", "title": "Wigilia i Boże Narodzenie", "start": "2026-12-24", "end": "2026-12-26", "type": "Święto", "color": "#078A20" }
   ]
 }

@@ -67,7 +67,14 @@
         const response = await fetch('events.json?' + Date.now()); // cache-busting
         if (!response.ok) throw new Error('Nie udało się załadować pliku events.json');
         const rawData = await response.json();
-        const events = Object.values(rawData).flat();
+        const events = Object.values(rawData).flat().map(e => {
+        if (e.end && e.start && e.end >= e.start) {
+          const endDate = new Date(e.end);
+          endDate.setDate(endDate.getDate() + 1);
+          e.end = endDate.toISOString().split('T')[0];
+        }
+        return e;
+      });
 
 
         statusEl.style.display = 'none';

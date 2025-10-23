@@ -80,7 +80,7 @@
       "title": "Wiktor-Urlop1",
       "start": "2026-07-20",
       "end": "2026-07-28",
-      "type": "",
+      "type": "Urlop",
       "color": "#000080"
     },
     {
@@ -88,7 +88,7 @@
       "title": "Wiktor-Urlop2",
       "start": "2026-08-03",
       "end": "2026-08-05",
-      "type": "",
+      "type": "Urlop",
       "color": "#000080"
     }
   ],

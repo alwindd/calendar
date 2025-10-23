@@ -43,7 +43,14 @@
       "type": "Urlop",
       "color": "#1f77b4"
     }
-  ],
+,  {
+      "id": "Tomek-placeholder",
+      "title": "Tomek — brak danych",
+      "start": "2025-12-22",
+      "end": "2026-01-06",
+      "type": "Urlop",
+      "color": "#1f77b4"
+    }  ],
 
   "Wiktoria": [
     {

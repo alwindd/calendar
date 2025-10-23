@@ -76,20 +76,20 @@
 
   "Wiktor": [
     {
-      "id": "Wiktor-placeholder",
-      "title": "Wiktor — brak danych",
+      "id": "Wiktor-Urlop1",
+      "title": "Wiktor-Urlop1",
       "start": "2026-07-20",
-      "end": "2026-07-28",
+      "end": "2026-07-29",
       "type": "",
-      "color": "#1f77b4"
+      "color": "#000080"
     },
     {
-      "id": "Wiktor-placeholder",
-      "title": "Wiktor — brak danych",
+      "id": "Wiktor-Urlop2",
+      "title": "Wiktor-Urlop2",
       "start": "2026-08-03",
-      "end": "2026-08-05",
+      "end": "2026-08-06",
       "type": "",
-      "color": "#1f77b4"
+      "color": "#000080"
     }
   ],
 

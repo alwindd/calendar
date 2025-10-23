@@ -54,12 +54,12 @@
 
   "Wiktoria": [
     {
-      "id": "Wiktoria-placeholder",
-      "title": "Wiktoria — brak danych",
-      "start": "",
-      "end": "",
+      "id": "Wiktoria-urop-swieta",
+      "title": "Wiktoria-urop-swieta",
+      "start": "2025-12-22",
+      "end": "2025-12-31",
       "type": "",
-      "color": "#1f77b4"
+      "color": "#000000"
     }
   ],
 

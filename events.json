@@ -109,6 +109,14 @@
       "end": "2026-01-05",
       "type": "Urlop",
       "color": "#1f77b4"
+    },
+    {
+      "id": "Jan-test",
+      "title": "Jan — test",
+      "start": "2025-10-24",
+      "end": "2026-10-24",
+      "type": "Urlop",
+      "color": "#1f77b4"
     }
   ],
 

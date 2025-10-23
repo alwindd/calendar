@@ -100,7 +100,7 @@
       "start": "2025-11-10",
       "end": "2025-11-10",
       "type": "Urlop",
-      "color": "#1f77b4"
+      "color": "#e48816"
     },
     {
       "id": "Jan-swieta-nowyrok",
@@ -108,7 +108,7 @@
       "start": "2025-12-22",
       "end": "2026-01-05",
       "type": "Urlop",
-      "color": "#1f77b4"
+      "color": "#e48816"
     },
     {
       "id": "Jan-test",
@@ -116,7 +116,7 @@
       "start": "2025-10-24",
       "end": "2026-10-24",
       "type": "Urlop",
-      "color": "#1f77b4"
+      "color": "#e48816"
     }
   ],
 

@@ -76,18 +76,26 @@
 
   "Wiktor": [
     {
-      "id": "Wiktor-Urlop1",
-      "title": "Wiktor-Urlop1",
+      "id": "Wiktor-Urlop-Letni1",
+      "title": "Wiktor-Urlop Letni",
       "start": "2026-07-20",
       "end": "2026-07-28",
       "type": "Urlop",
       "color": "#000080"
     },
     {
-      "id": "Wiktor-Urlop2",
-      "title": "Wiktor-Urlop2",
+      "id": "Wiktor-Urlop-Letni2",
+      "title": "Wiktor-Urlop Letni",
       "start": "2026-08-03",
       "end": "2026-08-05",
+      "type": "Urlop",
+      "color": "#000080"
+    },
+    {
+      "id": "Wiktor-Urlop-Studia",
+      "title": "Wiktor-Urlop na Studia",
+      "start": "2025-10-27",
+      "end": "2025-10-27",
       "type": "Urlop",
       "color": "#000080"
     }

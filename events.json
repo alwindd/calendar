@@ -111,6 +111,14 @@
       "color": "#e48816"
     },
     {
+      "id": "Jan-listopad2",
+      "title": "Jan — urlop",
+      "start": "2025-11-12",
+      "end": "2025-11-12",
+      "type": "Urlop",
+      "color": "#e48816"
+    },
+    {
       "id": "Jan-swieta-nowyrok",
       "title": "Jan — urlop (Święta i Nowy Rok)",
       "start": "2025-12-22",

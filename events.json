@@ -147,6 +147,16 @@
       "color": "#e48816"
     }
   ],
+  "Piotr": [
+    {
+      "id": "Piotr-listopad",
+      "title": "Piotr — urlop",
+      "start": "2025-11-10",
+      "end": "2025-11-10",
+      "type": "Urlop",
+      "color": "#59e0e3"
+    }
+  ],
 
   "Święta": [
     {

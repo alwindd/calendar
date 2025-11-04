@@ -135,6 +135,14 @@
       "color": "#e48816"
     }
   ],
+  "Piotr": [
+    {
+      "id": "Piotr-listopad",
+      "title": "Piotr-urlop",
+      "type": "Urlop"
+      "color": "#59e0e3"
+    }
+  ],
 
   "Święta": [
     { "id": "newyear2025", "title": "Nowy Rok", "start": "2025-01-01", "end": "2025-01-01", "type": "Święto", "color": "#078A20" },

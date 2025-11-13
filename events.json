@@ -80,6 +80,14 @@
       "end": "2025-12-31",
       "type": "Urlop",
       "color": "#000000"
+    },
+    {
+      "id": "Wiktoria-urlop",
+      "title": "Wiktoria-urlop",
+      "start": "2025-11-21",
+      "end": "2025-11-21",
+      "type": "Urlop",
+      "color": "#000000"
     }
   ],
 

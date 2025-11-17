@@ -47,6 +47,14 @@
       "end": "2026-08-16",
       "type": "Urlop",
       "color": "#800068"
+    },
+      {
+      "id": "Natalia-urlop122026",
+      "title": "Natalia — święta",
+      "start": "2026-12-21",
+      "end": "2027-01-03",
+      "type": "Urlop",
+      "color": "#800068"
     }
   ],
 

@@ -25,15 +25,23 @@
       "color": "#800068"
     },
     {
-      "id": "Natalia-urlop1",
-      "title": "Natalia — urlop1",
-      "start": "2026-05-26",
-      "end": "2026-06-07",
+      "id": "Natalia-202601",
+      "title": "Natalia",
+      "start": "2025-01-07",
+      "end": "2025-01-09",
       "type": "Urlop",
       "color": "#800068"
     },
     {
-      "id": "Natalia-urlop2",
+      "id": "Natalia-urlop062026",
+      "title": "Natalia",
+      "start": "2026-06-04",
+      "end": "2026-06-14",
+      "type": "Urlop",
+      "color": "#800068"
+    },
+    {
+      "id": "Natalia-urlop082026",
       "title": "Natalia — urlop2",
       "start": "2026-08-01",
       "end": "2026-08-16",
